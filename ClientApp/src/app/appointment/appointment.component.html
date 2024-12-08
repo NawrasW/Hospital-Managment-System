@@ -1,0 +1,40 @@
+<section id="appointments" class="appointments py-5">
+  <div class="container px-5">
+    <div class="section-title text-center mb-4">
+      <h2 class="text-black">Your Appointments</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow border-0 rounded">
+          <div class="card-body p-4">
+            <div *ngIf="filteredAppointments.length > 0; else noAppointments" class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="bg-primary text-white">
+                  <tr>
+                    <th>Date</th>
+                    <th>Problem</th>
+                    <th>Status</th>
+                    <th *ngIf="userRole === 'Doctor'">Patient</th>
+                    <th *ngIf="userRole === 'Patient'">Doctor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let appointment of filteredAppointments">
+                    <td>{{ appointment.appointmentDate | date: 'short' }}</td>
+                    <td>{{ appointment.problem }}</td>
+                    <td>{{ appointment.status }}</td>
+                    <td *ngIf="userRole === 'Doctor'">{{ appointment.patientName }}</td>
+                    <td *ngIf="userRole === 'Patient'">{{ appointment.doctorName }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ng-template #noAppointments>
+              <p class="text-center text-muted">No appointments found for your account.</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

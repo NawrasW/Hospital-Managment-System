@@ -1,0 +1,164 @@
+<section id="services" class="contact">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2> Registration </h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch text-start ">
+          <form (ngSubmit)="onSubmit(doctorForm)" #doctorForm="ngForm" class="php-email-form">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" name="doctor.firstName"
+                       required [disabled]="pageMode != PageModeEnum.Add || pageMode == PageModeEnum.View"
+                       #doctorFormFirstName="ngModel" minlength="3" [(ngModel)]="doctor.firstName" />
+                <span class="error-block" *ngIf="!doctorFormFirstName.valid && doctorFormFirstName.touched">
+                  <span *ngIf="doctorFormFirstName.hasError('required')" class="text-danger">First Name is required!</span>
+                  <span *ngIf="doctorFormFirstName.hasError('minlength')" class="text-danger">First Name must be at least 3 characters!</span>
+                </span>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" name="doctor.lastName"
+                       required [disabled]="pageMode != PageModeEnum.Add || pageMode == PageModeEnum.View"
+                       #doctorFormLastName="ngModel" minlength="5" [(ngModel)]="doctor.lastName" />
+                <span class="error-block" *ngIf="!doctorFormLastName.valid && doctorFormLastName.touched">
+                  <span *ngIf="doctorFormLastName.hasError('required')" class="text-danger">Last Name is required!</span>
+                  <span *ngIf="doctorFormLastName.hasError('minlength')" class="text-danger">Last Name must be at least 5 characters!</span>
+                </span>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="doctor.email"
+                       required [disabled]="pageMode != PageModeEnum.Add || pageMode == PageModeEnum.View"
+                       #doctorFormEmail="ngModel" email [(ngModel)]="doctor.email" />
+                <span class="error-block" *ngIf="!doctorFormEmail.valid && doctorFormEmail.touched">
+                  <span *ngIf="doctorFormEmail.hasError('required')" class="text-danger">Email is required!</span>
+                  <span *ngIf="doctorFormEmail.hasError('email')" class="text-danger">Invalid email!</span>
+                </span>
+              </div>
+  
+  
+              <div class="form-group col-md-6">
+                <label for="dateOfBirth">Date of Birth</label>
+                <input type="date" class="form-control" name="doctor.dateOfBirth"
+                       required [disabled]="pageMode != PageModeEnum.Add"
+                       #doctorFormDateOfBirth="ngModel" [(ngModel)]="doctor.dateOfBirth" />
+                <span class="error-block" *ngIf="!doctorFormDateOfBirth.valid && doctorFormDateOfBirth.touched">
+                  <span *ngIf="doctorFormDateOfBirth.hasError('required')" class="text-danger">Date of Birth is required!</span>
+                </span>
+              </div>
+
+
+
+              <div class="form-group col-md-6">
+                <label for="gender">Gender</label>
+                <input type="text" class="form-control" name="doctor.gender"
+                       required [disabled]="pageMode == PageModeEnum.View"
+                       #doctorFormGender="ngModel" [(ngModel)]="doctor.gender" />
+                <span class="error-block" *ngIf="!doctorFormGender.valid && doctorFormGender.touched">
+                  <span *ngIf="doctorFormGender.hasError('required')" class="text-danger">Gender is required!</span>
+                </span>
+              </div>
+  
+              <div class="form-group col-md-6">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="doctor.address"
+                       required [disabled]="pageMode == PageModeEnum.View"
+                       #doctorFormAddress="ngModel" [(ngModel)]="doctor.address" />
+                <span class="error-block" *ngIf="!doctorFormAddress.valid && doctorFormAddress.touched">
+                  <span *ngIf="doctorFormAddress.hasError('required')" class="text-danger">Address is required!</span>
+                </span>
+              </div>
+
+
+
+
+              <div class="form-group col-md-6">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" class="form-control" name="doctor.phoneNumber"
+                       required [disabled]="pageMode == PageModeEnum.View"
+                       #doctorFormPhoneNumber="ngModel" [(ngModel)]="doctor.phoneNumber" />
+                <span class="error-block" *ngIf="!doctorFormPhoneNumber.valid && doctorFormPhoneNumber.touched">
+                  <span *ngIf="doctorFormPhoneNumber.hasError('required')" class="text-danger">Phone Number is required!</span>
+                </span>
+              </div>
+
+              
+              <div class="form-group col-md-6">
+                <label for="specialization">Specialization</label>
+                <input type="text" class="form-control" name="doctor.specialization"
+                       required [disabled]="pageMode == PageModeEnum.View"
+                       #doctorFormSpecialization="ngModel" [(ngModel)]="doctor.specialization" />
+                <span class="error-block" *ngIf="!doctorFormSpecialization.valid && doctorFormSpecialization.touched">
+                  <span *ngIf="doctorFormSpecialization.hasError('required')" class="text-danger">Specialization is required!</span>
+                </span>
+              </div>
+
+
+              <div class="form-group col-md-6">
+                <label for="qualifications">Qualifications</label>
+                <input type="text" class="form-control" name="doctor.qualifications"
+                       required [disabled]="pageMode == PageModeEnum.View"
+                       #doctorFormQualifications="ngModel" [(ngModel)]="doctor.qualifications" />
+                <span class="error-block" *ngIf="!doctorFormQualifications.valid && doctorFormQualifications.touched">
+                  <span *ngIf="doctorFormQualifications.hasError('required')" class="text-danger">Qualifications is required!</span>
+                </span>
+              </div>
+  
+         
+  
+              <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="doctor.password"
+                       required [disabled]="pageMode == PageModeEnum.View"
+                       #doctorFormPassword="ngModel" minlength="5" [(ngModel)]="pageMode === PageModeEnum.Update ? '' : doctor.password" />
+                <span class="error-block" *ngIf="!doctorFormPassword.valid && doctorFormPassword.touched">
+                  <span *ngIf="doctorFormPassword.hasError('required')" class="text-danger">Password is required!</span>
+                  <span *ngIf="doctorFormPassword.hasError('minlength')" class="text-danger">Password must be at least 5 characters!</span>
+                </span>
+              </div>
+  
+              <div class="form-group col-md-6">
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="password" class="form-control" name="doctor.confirmpassword"
+                       required [disabled]="pageMode == PageModeEnum.View"
+                       #doctorFormConfirmPassword="ngModel" minlength="5" [(ngModel)]="pageMode === PageModeEnum.Update ? '' : doctor.confirmpassword" />
+                <span class="error-block" *ngIf="!doctorFormConfirmPassword.valid && doctorFormConfirmPassword.touched">
+                  <span *ngIf="doctorFormConfirmPassword.hasError('required')" class="text-danger">Confirm Password is required!</span>
+                  <span *ngIf="doctorFormConfirmPassword.hasError('minlength')" class="text-danger">Confirm Password must be at least 5 characters!</span>
+                </span>
+              </div>
+  
+            
+  
+              <div class="form-group col-12 text-center mt-3">
+  
+                <button type="submit" class="btn btn-dark m-2" [disabled]="!doctorForm.valid" >Save</button>
+                <button *ngIf="pageMode != PageModeEnum.Update" type="reset" class="btn btn-danger m-2" (click)="reset()">Reset</button>
+  
+  
+              </div>
+  
+  
+  
+  
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+  
+    <div  *ngIf="pageMode != PageModeEnum.Update" class="container mx-auto max-width-container">
+  
+      <!-- Add a smaller border below the form -->
+      <hr class="my-4">
+  
+      <!-- "Already have an account?" link -->
+      <div class="text-center mb-4">
+        <a routerLink="/signin" class="text-decoration-none text-dark">Already have an account?</a>
+      </div>
+  
+    </div>
+  </section>

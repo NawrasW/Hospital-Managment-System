@@ -1,0 +1,222 @@
+<section id="register" class="contact py-5">
+    <div class="container px-5">
+      <div class="section-title text-center mb-4">
+        <h2 class="text-black">Registration</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow border-0 rounded">
+            <div class="card-body p-4">
+              <form (ngSubmit)="onSubmit(patientForm)" #patientForm="ngForm">
+                <div class="row">
+                  <!-- First Name -->
+                  <div class="mb-3 col-md-6">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      name="patient.firstName"
+                      required
+                      minlength="3"
+                      [disabled]="pageMode != PageModeEnum.Add || pageMode == PageModeEnum.View"
+                      #patientFormFirstName="ngModel"
+                      [(ngModel)]="patient.firstName"
+                    />
+                    <div *ngIf="patientFormFirstName.invalid && patientFormFirstName.touched" class="text-danger small">
+                      <div *ngIf="patientFormFirstName.errors?.required">First Name is required!</div>
+                      <div *ngIf="patientFormFirstName.errors?.minlength">Must be at least 3 characters!</div>
+                    </div>
+                  </div>
+  
+                  <!-- Last Name -->
+                  <div class="mb-3 col-md-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      name="patient.lastName"
+                      required
+                      minlength="5"
+                      [disabled]="pageMode != PageModeEnum.Add || pageMode == PageModeEnum.View"
+                      #patientFormLastName="ngModel"
+                      [(ngModel)]="patient.lastName"
+                    />
+                    <div *ngIf="patientFormLastName.invalid && patientFormLastName.touched" class="text-danger small">
+                      <div *ngIf="patientFormLastName.errors?.required">Last Name is required!</div>
+                      <div *ngIf="patientFormLastName.errors?.minlength">Must be at least 5 characters!</div>
+                    </div>
+                  </div>
+  
+                  <!-- Email -->
+                  <div class="mb-3 col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      name="patient.email"
+                      required
+                      [disabled]="pageMode != PageModeEnum.Add || pageMode == PageModeEnum.View"
+                      #patientFormEmail="ngModel"
+                      [(ngModel)]="patient.email"
+                    />
+                    <div *ngIf="patientFormEmail.invalid && patientFormEmail.touched" class="text-danger small">
+                      <div *ngIf="patientFormEmail.errors?.required">Email is required!</div>
+                      <div *ngIf="patientFormEmail.errors?.email">Invalid email format!</div>
+                    </div>
+                  </div>
+  
+                  <!-- Phone Number -->
+                  <div class="mb-3 col-md-6">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="phoneNumber"
+                      name="patient.phoneNumber"
+                      required
+                      [disabled]="pageMode == PageModeEnum.View"
+                      #patientFormPhoneNumber="ngModel"
+                      [(ngModel)]="patient.phoneNumber"
+                    />
+                    <div *ngIf="patientFormPhoneNumber.invalid && patientFormPhoneNumber.touched" class="text-danger small">
+                      <div *ngIf="patientFormPhoneNumber.errors?.required">Phone Number is required!</div>
+                    </div>
+                  </div>
+  
+                  <!-- Date of Birth -->
+                  <div class="mb-3 col-md-6">
+                    <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="dateOfBirth"
+                      name="patient.dateOfBirth"
+                      required
+                      [disabled]="pageMode != PageModeEnum.Add"
+                      #patientFormDateOfBirth="ngModel"
+                      [(ngModel)]="patient.dateOfBirth"
+                    />
+                    <div *ngIf="patientFormDateOfBirth.invalid && patientFormDateOfBirth.touched" class="text-danger small">
+                      <div *ngIf="patientFormDateOfBirth.errors?.required">Date of Birth is required!</div>
+                    </div>
+                  </div>
+  
+                  <!-- Gender -->
+                  <div class="mb-3 col-md-6">
+                    <label for="gender" class="form-label">Gender</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="gender"
+                      name="patient.gender"
+                      required
+                      [disabled]="pageMode == PageModeEnum.View"
+                      #patientFormGender="ngModel"
+                      [(ngModel)]="patient.gender"
+                    />
+                    <div *ngIf="patientFormGender.invalid && patientFormGender.touched" class="text-danger small">
+                      <div *ngIf="patientFormGender.errors?.required">Gender is required!</div>
+                    </div>
+                  </div>
+
+                  <!-- Blood Type -->
+            <div class="form-group col-md-6">
+                <label for="bloodType">Blood Type</label>
+                <input type="text" class="form-control" name="patient.bloodType"
+                       required [disabled]="pageMode == PageModeEnum.View"
+                       #patientFormBloodType="ngModel" [(ngModel)]="patient.bloodType" />
+                <span class="error-block" *ngIf="!patientFormBloodType.valid && patientFormBloodType.touched">
+                  <span *ngIf="patientFormBloodType.hasError('required')" class="text-danger">Blood Type is required!</span>
+                </span>
+              </div>
+  
+              <!-- Allergies -->
+              <div class="form-group col-md-6">
+                <label for="allergies">Allergies</label>
+                <textarea class="form-control" name="patient.allergies"
+                          required [disabled]="pageMode == PageModeEnum.View"
+                          #patientFormAllergies="ngModel" [(ngModel)]="patient.allergies"></textarea>
+                <span class="error-block" *ngIf="!patientFormAllergies.valid && patientFormAllergies.touched">
+                  <span *ngIf="patientFormAllergies.hasError('required')" class="text-danger">Allergies are required!</span>
+                </span>
+              </div>
+  
+              <!-- Insurance Details -->
+              <div class="form-group col-md-6">
+                <label for="insuranceDetails">Insurance Details</label>
+                <textarea class="form-control" name="patient.insuranceDetails"
+                          required [disabled]="pageMode == PageModeEnum.View"
+                          #patientFormInsuranceDetails="ngModel" [(ngModel)]="patient.insuranceDetails"></textarea>
+                <span class="error-block" *ngIf="!patientFormInsuranceDetails.valid && patientFormInsuranceDetails.touched">
+                  <span *ngIf="patientFormInsuranceDetails.hasError('required')" class="text-danger">Insurance Details are required!</span>
+                </span>
+              </div>
+  
+                  <!-- Password -->
+                  <div class="mb-3 col-md-6">
+                    <label for="password" class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      name="patient.password"
+                      required
+                      minlength="5"
+                      [disabled]="pageMode == PageModeEnum.View"
+                      #patientFormPassword="ngModel"
+                      [(ngModel)]="pageMode === PageModeEnum.Update ? '' : patient.password"
+                    />
+                    <div *ngIf="patientFormPassword.invalid && patientFormPassword.touched" class="text-danger small">
+                      <div *ngIf="patientFormPassword.errors?.required">Password is required!</div>
+                      <div *ngIf="patientFormPassword.errors?.minlength">Must be at least 5 characters!</div>
+                    </div>
+                  </div>
+  
+                  <!-- Confirm Password -->
+                  <div class="mb-3 col-md-6">
+                    <label for="confirmpassword" class="form-label">Confirm Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="confirmpassword"
+                      name="patient.confirmpassword"
+                      required
+                      minlength="5"
+                      [disabled]="pageMode == PageModeEnum.View"
+                      #patientFormConfirmPassword="ngModel"
+                      [(ngModel)]="pageMode === PageModeEnum.Update ? '' : patient.confirmpassword"
+                    />
+                    <div *ngIf="patientFormConfirmPassword.invalid && patientFormConfirmPassword.touched" class="text-danger small">
+                      <div *ngIf="patientFormConfirmPassword.errors?.required">Confirm Password is required!</div>
+                      <div *ngIf="patientFormConfirmPassword.errors?.minlength">Must be at least 5 characters!</div>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Submit Button -->
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-block text-uppercase fw-bold" [disabled]="!patientForm.valid">
+                    Register
+                  </button>
+                </div>
+
+
+
+                 <!-- Already have an account? -->
+  <div *ngIf="pageMode != PageModeEnum.Update" class="container mx-auto max-width-container">
+    <hr class="my-4">
+    <div class="text-center mb-4">
+      <a routerLink="/signinpatient" class="text-decoration-none text-dark">Already have an account?</a>
+    </div>
+  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

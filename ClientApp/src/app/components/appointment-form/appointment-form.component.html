@@ -1,0 +1,109 @@
+<section id="appointment" class="appointment py-5 bg-primary">
+  <div class="container px-5">
+    <div class="row align-items-center gx-5">
+      <!-- Appointment Form -->
+      <div class="col-lg-6">
+        <div class="bg-white shadow-sm p-5 rounded-3">
+          <h3 class="fw-bold text-black mb-2">Book your appointment</h3>
+          <p class="text-muted fw-light">Online Appointment Form</p>
+          <form [formGroup]="appointmentForm" (ngSubmit)="onSave()" class="text-start pt-3">
+
+            
+           <!-- Department Selection -->
+<div class="row">
+  <div class="mb-3 col-12">
+    <label for="departmentId" class="form-label small text-muted">
+      Select Department <small class="text-danger">*</small>
+    </label>
+    <select
+      id="departmentId"
+      formControlName="departmentId"
+      class="form-select"
+      (change)="onDepartmentChange($event)"
+    >
+      <option value="" disabled selected>Select a department</option>
+      <option *ngFor="let department of allDepartments" [value]="department.id">
+        {{ department.name }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<!-- Doctor Selection -->
+<div class="row">
+  <div class="mb-3 col-12">
+    <label for="doctorId" class="form-label small text-muted">
+      Select Doctor <small class="text-danger">*</small>
+    </label>
+    <select id="doctorId" formControlName="doctorId" class="form-select">
+      <option value="" disabled selected>Select a doctor</option>
+      <option *ngFor="let doctor of filteredDoctors" [value]="doctor.id">
+        {{ doctor.firstName + ' ' + doctor.lastName }}
+      </option>
+    </select>
+  </div>
+</div>
+
+            <!-- Appointment Date and Time -->
+            <div class="row">
+              <div class="mb-3 col-12 pe-2">
+                <label for="appointmentDate" class="form-label small text-muted">
+                  Appointment Date <small class="text-danger">*</small>
+                </label>
+                <input
+                  id="appointmentDate"
+                  type="date"
+                  formControlName="appointmentDate"
+                  class="form-control"
+                />
+              </div>
+             
+            </div>
+
+            <!-- Problem Description -->
+            <div class="mb-3">
+              <label for="problem" class="form-label small text-muted">
+                Problem Description <small class="text-danger">*</small>
+              </label>
+              <textarea
+                id="problem"
+                formControlName="problem"
+                class="form-control hight-auto"
+                placeholder="Enter the details of your problem..."
+                rows="4"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="btn btn-warning fw-bold fs-7 rounded-3 w-100 border-0 px-4 py-3 text-uppercase"
+            >
+              Save Appointment
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Info and Help Section -->
+      <div class="col-lg-6 text-center d-flex flex-column align-items-center">
+        <dotlottie-player
+  src="/assets/Animation - 1732443173100.lottie"
+  autoplay
+  loop
+  style="width: 300px; height: 300px;"
+></dotlottie-player>
+        <h1 class="text-white display-4 fw-bold">+1 874 801 8014</h1>
+        <p class="fs-6 mb-5 text-white-50">
+          In case of problems in filling out the form, please do let us know.
+        </p>
+        <a
+          href="contact.html"
+          class="btn btn-warning fw-bold fs-7 rounded-3 border-0 px-4 py-3 text-uppercase"
+        >
+          <i class="bi bi-question-circle me-2"></i> Need Help?
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

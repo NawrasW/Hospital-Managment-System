@@ -1,0 +1,12 @@
+.custom-image {
+    margin-left: 90px; /* Default for larger screens */
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) and (min-width: 360px) {
+    .custom-image {
+      margin-left: 5px !important; /* Smaller margin for smaller screens */
+    }
+  }
+  

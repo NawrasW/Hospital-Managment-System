@@ -1,0 +1,112 @@
+<section id="schedule" class="py-5 bg-primary">
+  <div class="container px-5">
+    <div class="row align-items-center gx-5">
+      <!-- Schedule Form -->
+      <div class="col-lg-6">
+        <div class="bg-white shadow-sm p-5 rounded-3">
+          <h3 class="fw-bold text-black mb-2">Schedule Form</h3>
+          <p class="text-muted fw-light">Manage your availability</p>
+          <form [formGroup]="scheduleForm" (ngSubmit)="submitSchedule()" class="text-start pt-3">
+            
+            <!-- Doctor Name (Uneditable) -->
+            <div class="mb-3">
+              <label for="doctorName" class="form-label small text-muted">
+                Doctor Name
+              </label>
+              <input
+                type="text"
+                id="doctorName"
+                class="form-control"
+                [value]="doctorName"
+                readonly
+              />
+            </div>
+
+            <!-- Hidden Doctor ID -->
+            <input type="hidden" formControlName="doctorId" />
+
+            <!-- Available Start Day -->
+            <div class="mb-3">
+              <label for="availableStartDay" class="form-label small text-muted">
+                Available Start Day
+              </label>
+              <select id="availableStartDay" formControlName="availableStartDay" class="form-select">
+                <option value="" disabled selected>Select a day</option>
+                <option *ngFor="let day of daysOfWeek" [value]="day">{{ day }}</option>
+              </select>
+              <div *ngIf="scheduleForm.controls['availableStartDay'].invalid && scheduleForm.controls['availableStartDay'].touched" class="text-danger small">
+                Start day is required.
+              </div>
+            </div>
+
+            <!-- Available End Day -->
+            <div class="mb-3">
+              <label for="availableEndDay" class="form-label small text-muted">
+                Available End Day
+              </label>
+              <select id="availableEndDay" formControlName="availableEndDay" class="form-select">
+                <option value="" disabled selected>Select a day</option>
+                <option *ngFor="let day of daysOfWeek" [value]="day">{{ day }}</option>
+              </select>
+              <div *ngIf="scheduleForm.controls['availableEndDay'].invalid && scheduleForm.controls['availableEndDay'].touched" class="text-danger small">
+                End day is required.
+              </div>
+            </div>
+
+            <!-- Available Start Time -->
+            <div class="mb-3">
+              <label for="availableStartTime" class="form-label small text-muted">
+                Available Start Time
+              </label>
+              <input
+                type="time"
+                id="availableStartTime"
+                formControlName="availableStartTime"
+                class="form-control"
+              />
+              <div *ngIf="scheduleForm.controls['availableStartTime'].invalid && scheduleForm.controls['availableStartTime'].touched" class="text-danger small">
+                Start time is required.
+              </div>
+            </div>
+
+            <!-- Available End Time -->
+            <div class="mb-3">
+              <label for="availableEndTime" class="form-label small text-muted">
+                Available End Time
+              </label>
+              <input
+                type="time"
+                id="availableEndTime"
+                formControlName="availableEndTime"
+                class="form-control"
+              />
+              <div *ngIf="scheduleForm.controls['availableEndTime'].invalid && scheduleForm.controls['availableEndTime'].touched" class="text-danger small">
+                End time is required.
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="btn btn-warning fw-bold fs-7 rounded-3 w-100 border-0 px-4 py-3 text-uppercase"
+              [disabled]="isSubmitting"
+            >
+              {{ isSubmitting ? 'Saving...' : 'Save Schedule' }}
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Additional Information or Animation Section -->
+      <div class="col-lg-6 text-center d-flex flex-column align-items-center">
+        <dotlottie-player
+          src="/assets/Animation - 1732700496065.lottie"
+          autoplay
+          loop
+          style="width: 400px; height: 600px;"
+        ></dotlottie-player>
+    
+      </div>
+    </div>
+  </div>
+</section>

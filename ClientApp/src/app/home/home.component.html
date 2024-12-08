@@ -1,0 +1,244 @@
+  <!-- Header-->
+  <header class="bg-primary pt-0">
+   <div class="container px-5">
+     <div class="row gx-5 align-items-center justify-content-center">
+       <div class="col-lg-8 col-xl-7 col-xxl-6">
+         <div class="my-5 text-center text-xl-start py-5">
+           <h1 class="display-5 fw-bolder text-white mb-4">
+             Providing <span class="fw-bold text-warning">care</span> and <span class="fw-bold text-warning">compassion</span> you can count on!
+           </h1>
+           <p class="lead fw-light text-white-50 mb-4">
+             Our dedicated team offers personalized medical solutions to improve your health and well-being. We’re here to guide you every step of the way.
+           </p>
+           <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+             <a class="btn btn-light fw-bold text-primary fs-7 rounded-3 px-4 py-3 text-uppercase me-sm-1" href="#features">
+               Learn More
+             </a>
+             <a
+               class="btn btn-outline-light fw-bold fs-7 rounded-3 px-4 py-3 text-uppercase"
+               *ngIf="isPatient()"
+               routerLink="/appointment-form"
+             >
+               Book an Appointment
+             </a>
+           </div>
+         </div>
+       </div>
+       
+       <div class="col-xl-5 col-xxl-6 text-center d-flex justify-content-center align-items-center">
+         <dotlottie-player
+           src="/assets/Animation - 1733136497591.lottie"
+           autoplay
+           loop
+           style="width: 600px; height: 600px;"
+         ></dotlottie-player>
+       </div>
+     </div>
+   </div>
+ </header>
+ 
+ 
+ 
+ 
+ 
+
+ <section class="py-5" id="features">
+   <div class="container px-5 my-5">
+     <div class="row gx-5">
+       <!-- Left Column for Intro -->
+       <div class="col-lg-4 mb-5 mb-lg-0 pe-lg-5">
+         <p class="text-uppercase text-primary mb-2">OUR SERVICES</p>
+         <h2 class="fw-bold mb-3 text-black">Committed to providing top-quality medical care for your family</h2>
+         <p class="text-muted">
+           From preventive care to specialized treatments, we focus on ensuring your health and happiness through every stage of life.
+         </p>
+       </div>
+       <!-- Right Column for Services -->
+       <div class="col-lg-8">
+         <div class="row gx-5">
+           <div class="col-md-6 mb-5">
+             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 d-flex align-items-center justify-content-center fs-2" style="width: 50px; height: 50px;">                   
+               <i class="bi bi-file-medical"></i>
+             </div>
+             <h2 class="h5">General Health Checkups</h2>
+             <p class="mb-0">Our routine checkups are designed to detect and address health issues early, ensuring peace of mind.</p>
+           </div>
+           <div class="col-md-6 mb-5">
+             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 d-flex align-items-center justify-content-center fs-2" style="width: 50px; height: 50px;">                    
+               <i class="bi bi-soundwave"></i>
+             </div>
+             <h2 class="h5">Hearing Care</h2>
+             <p class="mb-0">We provide expert evaluations and treatments to ensure optimal hearing health for patients of all ages.</p>
+           </div>
+           <div class="col-md-6 mb-5">
+             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 d-flex align-items-center justify-content-center fs-2" style="width: 50px; height: 50px;">                    
+               <i class="bi bi-eye"></i>
+             </div>
+             <h2 class="h5">Vision Care</h2>
+             <p class="mb-0">Protect your eyesight with comprehensive eye exams and advanced treatments for vision problems.</p>
+           </div>
+           <div class="col-md-6 mb-5">
+             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 d-flex align-items-center justify-content-center fs-2" style="width: 50px; height: 50px;">                    
+               <i class="bi bi-heart"></i>
+             </div>
+             <h2 class="h5">Cardiac Care</h2>
+             <p class="mb-0">Our team specializes in diagnosing and managing heart conditions with personalized treatment plans.</p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ 
+ 
+
+
+ <!-- Testimonial section-->
+<section class="py-5 bg-white">
+  <div class="container px-5 mt-5">
+     <div class="row gx-5 justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+           <div class="text-center mb-5">
+              <p class="text-uppercase text-primary mb-2">TESTIMONIAL</p>
+              <h2 class="fw-bold mb-3 text-black">What our patients say about our medical treatments</h2>
+           </div>
+        </div>
+     </div>
+     <div class="row gx-5">
+        <div class="col-lg-4">
+           <div class="text-left mb-5">
+              <span class="text-warning fs-6">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              </span>
+              <p class="fs-5 mb-4 mt-2 fw-light text-primary">"I was impressed with how beautiful and clean this property was. The owner definitely goes the extra mile to help their guests!"</p>
+              <h6 class="fw-bold mb-1">Adam Hall</h6>
+              <p class="fw-light mb-0 text-muted">Lisbon, Portugal</p>
+           </div>
+        </div>
+        <div class="col-lg-4">
+           <div class="text-left mb-5">
+              <span class="text-warning fs-6">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              </span>
+              <p class="fs-5 mb-4 mt-2 fw-light text-primary">"Amazing location, convenient parking, and a lots of amenities and extras. I will definitely be returning here whenever I'm in town."
+              </p>
+              <h6 class="fw-bold mb-1">Lia Peterson</h6>
+              <p class="fw-light mb-0 text-muted">Sacramento, CA, USA</p>
+           </div>
+        </div>
+        <div class="col-lg-4">
+           <div class="text-left mb-5">
+              <span class="text-warning fs-6">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              </span>
+              <p class="fs-5 mb-4 mt-2 fw-light text-primary">"We was impressed with how beautiful and clean this property was. The owner definitely goes the extra mile to help their guests!"</p>
+              <h6 class="fw-bold mb-1">Osahan Hall</h6>
+              <p class="fw-light mb-0 text-muted">India, Portugal</p>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+
+
+ <!-- Blog preview section-->
+<section class="py-5">
+   <div class="container px-5 mt-5">
+      <div class="row gx-5 justify-content-center">
+         <div class="col-lg-8 col-xl-6">
+            <div class="text-center mb-5">
+               <p class="text-uppercase text-primary mb-2">LATEST NEWS</p>
+               <h2 class="fw-bold mb-3 text-black">Keep up with our most recent medical news</h2>
+               <p class="text-muted">Stay informed about our latest medical advancements, clinic updates, and health tips.</p>
+            </div>
+         </div>
+      </div>
+      <div class="row gx-5">
+         <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow-sm rounded-3 border-0">
+               <img class="card-img-top" src="img/blog-1.jpeg" alt="Medical Clinic Insights">
+               <div class="card-body p-4">
+                  <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                  <a class="text-decoration-none link-dark stretched-link" href="blog-post.html">
+                     <h5 class="card-title mb-3 lh-base">Things Most People Don't Know About Medical Clinic</h5>
+                  </a>
+                  <p class="card-text mb-0">Discover hidden gems about our clinic, from unique services to patient-first approaches. Learn what sets us apart in healthcare.</p>
+               </div>
+               <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                  <div class="d-flex align-items-end justify-content-between">
+                     <div class="d-flex align-items-center">
+                        <img class="rounded-circle me-3" src="img/u1.png" alt="Kelly Rowan">
+                        <div class="small">
+                           <div class="fw-bold">Kelly Rowan</div>
+                           <div class="text-muted">March 12, 2021 · 6 min read</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow-sm rounded-3 border-0">
+               <img class="card-img-top" src="img/blog-3.jpeg" alt="Medical Clinic Challenges">
+               <div class="card-body p-4">
+                  <div class="badge bg-primary bg-gradient rounded-pill mb-2">Media</div>
+                  <a class="text-decoration-none link-dark stretched-link" href="blog-post.html">
+                     <h5 class="card-title mb-3 lh-base">The Ugly Truth About Medical Clinic</h5>
+                  </a>
+                  <p class="card-text mb-0">Uncover the challenges faced by medical clinics and how innovation helps overcome them for better patient care.</p>
+               </div>
+               <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                  <div class="d-flex align-items-end justify-content-between">
+                     <div class="d-flex align-items-center">
+                        <img class="rounded-circle me-3" src="img/u2.png" alt="Josiah Barclay">
+                        <div class="small">
+                           <div class="fw-bold">Josiah Barclay</div>
+                           <div class="text-muted">March 23, 2021 · 4 min read</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow-sm rounded-3 border-0">
+               <img class="card-img-top" src="img/blog-4.jpeg" alt="Medical Clinic Best Practices">
+               <div class="card-body p-4">
+                  <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                  <a class="text-decoration-none link-dark stretched-link" href="blog-post.html">
+                     <h5 class="card-title mb-3 lh-base">What NOT to Do in the Medical Clinic Industry</h5>
+                  </a>
+                  <p class="card-text mb-0">Learn about common pitfalls in the medical clinic industry and how to avoid them for a seamless patient experience.</p>
+               </div>
+               <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                  <div class="d-flex align-items-end justify-content-between">
+                     <div class="d-flex align-items-center">
+                        <img class="rounded-circle me-3" src="img/u3.png" alt="Evelyn Martinez">
+                        <div class="small">
+                           <div class="fw-bold">Evelyn Martinez</div>
+                           <div class="text-muted">April 2, 2021 · 10 min read</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+ </section>
+ 
+
+
+

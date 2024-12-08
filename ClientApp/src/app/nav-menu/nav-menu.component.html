@@ -1,0 +1,69 @@
+<div class="bg-primary">
+   <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-0 osahan-nav">
+     <div class="container px-5 py-3">
+  
+       <!-- Navbar Toggler -->
+       <button
+         class="navbar-toggler"
+         type="button"
+         data-bs-toggle="collapse"
+         data-bs-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent"
+         aria-expanded="false"
+         aria-label="Toggle navigation"
+       >
+         <span class="navbar-toggler-icon"></span>
+       </button>
+ 
+       <!-- Collapsible Navbar Content -->
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+           <li class="nav-item"><a class="nav-link" href="about.html">Services</a></li>
+          
+           <li class="nav-item dropdown">
+             <a
+               class="nav-link dropdown-toggle"
+               href="#"
+               role="button"
+               data-bs-toggle="dropdown"
+               aria-expanded="false"
+             >Blog</a>
+             <ul class="dropdown-menu m-0 border-0 shadow-sm p-2 dropdown-menu-end">
+               <li><a class="dropdown-item px-3 py-2 rounded" href="blog-home.html">Blog Home</a></li>
+               <li><a class="dropdown-item px-3 py-2 rounded" href="blog-post.html">Blog Post</a></li>
+             </ul>
+           </li>
+           <li class="nav-item"><a class="nav-link" routerLink="/appointment">Appointment</a></li>
+           <li class="nav-item"><a class="nav-link" *ngIf="isDoctor() || isAdmin() " routerLink="/schedule-form">Schedule</a></li>
+           
+           <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+           <li class="nav-item">
+             <a *ngIf="isAdmin()" class="nav-link" role="button" (click)="navigateToDoctorList()">Doctors</a>
+           </li>
+         </ul>
+         <div class="d-flex gap-4 align-items-center" *ngIf="!loggedin()">
+           <a type="submit" routerLink="/signinpatient" class="text-decoration-none text-white text-uppercase fw-bold">Log In Patients</a>
+           <a type="submit" routerLink="/signindoctor" class="text-decoration-none text-white text-uppercase fw-bold">Log In Doctors</a>
+           <a  type="submit" routerLink="/signup" class="btn btn-warning text-uppercase fw-bold">Sign up</a>
+         </div>
+         <div *ngIf="loggedin()" class="dropdown">
+           <!-- Avatar button -->
+           <div tabindex="0" role="button" class="btn" (click)="toggleDropdown()" aria-expanded="false">
+             <img src="https://cdn-icons-png.flaticon.com/512/10453/10453654.png" alt="Avatar" style="width: 40px; height: 40px;" />
+           </div>
+           <!-- Dropdown menu -->
+           <nav class="dropdown-menu" [ngClass]="{ 'show': dropdownOpen }">
+             <ul>
+               <li><a (click)="logout()">Sign Out</a></li>
+             </ul>
+           </nav>
+         </div>
+       </div>
+     </div>
+   </nav>
+ </div>
+ 

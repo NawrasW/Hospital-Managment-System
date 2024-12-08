@@ -1,0 +1,94 @@
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+  
+          <div class="card-header">
+            <h3 class="card-title">Doctors</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col d-flex flex-row-reverse">
+                <button type="button" class="btn btn-primary m-2" routerLink="/admin/doctor-add">Add New Doctor</button>
+                <button type="button" class="btn btn-primary m-2" (click)="add()" #openModalButton data-bs-toggle="modal" data-bs-target="#DoctorModal" >
+                Add Doctor</button>
+              </div>
+  
+  
+            </div>
+  
+            <table class="table "  >
+              <thead class="table-dark">
+                <tr class="row  ">
+                  <th class="col text-start">First Name</th>
+                  <th class="col text-start">Last Name</th>
+                  <th class="col text-start">Email</th>
+              
+                  <th class="col  text-start">Phone Number</th>
+                  <th class="col  text-start">Gender</th>
+                  <th class="col  text-start">Actions</th>
+                </tr>
+              </thead>
+  
+  
+              <tr class="row mt-4" *ngFor="let Doctor of doctors ">
+                <td class="col text-start">{{ Doctor.firstName }}</td>
+                <td class="col text-start">{{ Doctor.lastName }}</td>
+                <td class="col text-start">{{ Doctor.email }}</td>
+           
+  
+                <td class="col text-end">{{ Doctor.phoneNumber }}</td>
+                <td class="col text-end">{{ Doctor.gender }}</td>
+  
+                <td class="col text-center">
+  
+                  <div class="container mt-3">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary mx-1" (click)="goToUpdateDoctor(Doctor)">Edit</button>
+                   
+                      <button type="button" class="btn btn-success mx-1" (click)="view(Doctor)">View</button>
+                      <button type="button" class="btn btn-danger mx-1" (click)="delete(Doctor)">Delete</button>
+                    </div>
+                  </div>
+  
+                </td>
+  
+              </tr>
+            </table>
+  
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  
+  
+  </div>
+  
+  <div class="modal fade" id="DoctorModal">
+  
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Doctor</h4>
+          <button type="button" class="btn-close" (click)="reset()" #closeButton data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+  
+  
+  
+  
+  
+        </div>
+        <div class="modal-footer">
+          <button  class="btn btn-danger" type="button" data-bs-dismiss="modal" (click)="reset()"> Close</button>
+          <button *ngIf="pageMode != PageModeEnum.View" class="btn btn-danger" type="button" (click)="reset()"> Reset</button>
+          <button *ngIf="pageMode != PageModeEnum.View" class="btn btn-primary" type="button" (click)="save()"> Save</button>
+        </div>
+      </div>
+  
+    </div>
+  
+  </div>
