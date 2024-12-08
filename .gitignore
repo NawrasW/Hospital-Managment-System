@@ -233,3 +233,7 @@ _Pvt_Extensions
 # Sensitive application settings
 appsettings.json
 appsettings.*.json
+
+
+# Ignore Angular cache files
+ClientApp/.angular/cache
