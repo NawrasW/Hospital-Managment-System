@@ -1,4 +1,5 @@
-Screenshots
+<h1>Screenshots</h1>
+
 ![Screenshot 2024-12-08 at 13-32-58 Hospital Managment System](https://github.com/user-attachments/assets/e33d7c3a-08cc-4627-8247-5950d910df79)
 
 ![Screenshot 2024-12-08 at 13-33-30 Hospital Managment System](https://github.com/user-attachments/assets/ceb0c30e-e7f4-42dd-b0c6-d91b5def1289)
